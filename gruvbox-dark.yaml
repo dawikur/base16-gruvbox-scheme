@@ -1,18 +1,18 @@
 scheme: "Gruvbox dark"
 author: "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)"
-base00: "282828"
-base01: "504945"
-base02: "7c6f64"
-base03: "928374"
-base04: "bdae93"
-base05: "d5c4a1"
-base06: "ebdbb2"
-base07: "fbf1c7"
-base08: "fb4934"
-base09: "fe8019"
-base0A: "fabd2f"
-base0B: "b8bb26"
-base0C: "83a598"
-base0D: "458588"
-base0E: "d3869b"
-base0F: "d65d0e"
+base00: "282828" # ----
+base01: "504945" # ---
+base02: "7c6f64" # --
+base03: "928374" # -
+base04: "bdae93" # +
+base05: "d5c4a1" # ++
+base06: "ebdbb2" # +++
+base07: "fbf1c7" # ++++
+base08: "fb4934" # red
+base09: "fe8019" # orange
+base0A: "fabd2f" # yellow
+base0B: "b8bb26" # green
+base0C: "8ec07c" # aqua/cyan
+base0D: "458588" # blue
+base0E: "d3869b" # purple
+base0F: "d65d0e" # brown
