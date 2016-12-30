@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+
+import os
+
+from PIL import Image, ImageDraw
+
+
+
+def extractColor(line):
+    line = line[line.find('"')+1:]
+    line = line[:line.find('"')]
+    return '#' + line
+
+
+def getColors(yaml):
+    with open(yaml) as content:
+        lines = content.read().split('\n')
+
+    colors = []
+    for line in lines:
+        if "base" in line:
+            colors.append(extractColor(line))
+
+    return colors
+
+
+def drawColors(draw, colors, size):
+    offset = size/2 - 1
+
+    for i in range(0, len(colors)):
+        begin = (offset + i*size, 0)
+        end = (offset + i*size, len(colors) * size)
+
+        draw.line(begin + end, colors[i], size)
+
+
+def generateImage(colors):
+    color_size = 20
+    size = color_size * len(colors)
+
+    image = Image.new("RGB", (size, size))
+    drawColors(ImageDraw.Draw(image), colors, color_size)
+
+    return image
+
+
+def saveImage(image, name, ext):
+    with open(name + '.' + ext, "wb") as output:
+        image.save(output, ext)
+
+
+def main():
+    yamls = [file for file in os.listdir('.') if "yaml" in file]
+    for yaml in yamls:
+        name = yaml[:yaml.find('.')]
+
+        colors = getColors(yaml)
+        image = generateImage(colors)
+        saveImage(image, name, 'png')
+
+if __name__ == "__main__":
+    main()
